@@ -175,7 +175,9 @@
   (setq vterm-max-scrollback 10000))
 
 (use-package multi-vterm
-  :vc (:fetcher github :repo suonlight/multi-vterm))
+  :demand t
+  :vc (:fetcher github :repo suonlight/multi-vterm)
+  :config (require 'multi-vterm))
 
 (use-package which-key
   :config

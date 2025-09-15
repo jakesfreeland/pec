@@ -4,5 +4,6 @@
 
 (add-hook 'c-mode-common-hook
 	  (lambda ()
-	    (c-set-style "stroustrup")
+	    (c-set-style "bsd")
+	    (lsp)
 	    (filladapt-mode 1)))

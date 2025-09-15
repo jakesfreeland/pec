@@ -10,3 +10,5 @@
 (add-hook 'lsp-mode-hook
 	  (lambda ()
 	    (local-set-key (kbd "M-.") 'lsp-find-definition)))
+
+(add-hook 'prog-mode-hook 'copilot-mode)

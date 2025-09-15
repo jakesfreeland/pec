@@ -23,6 +23,9 @@
  ; Better buffer menu
  "C-x C-b" ibuffer-other-window
 
+ "C-v" View-scroll-half-page-forward
+ "M-v" View-scroll-half-page-backward
+
  ; Overwrite useless `list-directory' binding to call `dired' instead
  "C-x C-d" dired
 
@@ -41,8 +44,8 @@
 ;; Custom bindings
 
 (keybinds
- "C-z ," vterm-other-window
- "C-z C-," multi-vterm-other-window
+ "C-z ," multi-vterm-other-window
+ "C-z C-," vterm-other-window
  "C-z ." eshell-other-window
  "C-z 1" consult-todo
  "C-z 6" file-info-show

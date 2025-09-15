@@ -3,19 +3,12 @@
 ;;;
 
 ;; Platform
-(defcustom myOs "linux"
-  "Variable used to guard settings that only work on Linux or MacOs"
-  :type 'string)
-
-;; Uncomment on mac
-(setq myOs "mac")
-
 (defmacro when-mac (then)
-  `(when (string-equal myOs "mac")
+  `(when (eq system-type 'darwin)
      ,then))
 
 (defmacro when-linux (then)
-  `(when (string-equal myOs "linux")
+  `(when (eq system-type 'gnu/linux)
      ,then))
 
 (defun load-these (files)
@@ -80,9 +73,32 @@
 	      "python-setup.el"
 
 	      ;; * Documents
-	      "pdf-setup.el"))
+	      "pdf-setup.el"
+
+	      ;; retard
+	      "tramp-setup.el"))
 
 ;; M-x customize
 (setq custom-file (locate-user-emacs-file "custom-vars.el"))
 (load custom-file 'noerror 'nomessage)
 (put 'narrow-to-region 'disabled nil)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-vc-selected-packages
+   '((multi-vterm :vc-backend Git :url
+		  "https://github.com/suonlight/multi-vterm")
+     (vterm :vc-backend Git :url
+	    "https://github.com/akermu/emacs-libvterm")
+     (accent :vc-backend Git :url
+	     "https://github.com/eliascotto/accent")
+     (vc-use-package :vc-backend Git :url
+		     "https://github.com/slotThe/vc-use-package"))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

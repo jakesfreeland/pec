@@ -225,3 +225,8 @@ Version 2016-07-13"
   (let* ((h-m-s-list
 	  (-split-on (car (string-to-list ":")) (string-to-list str))))
     (mapconcat #'string (calc-hmsify h-m-s-list))))
+
+(defun my-shell ()
+    (interactive)
+    (let ((default-directory "/ssh:user@host:"))
+      (shell)))

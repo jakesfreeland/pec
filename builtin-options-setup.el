@@ -2,9 +2,14 @@
 ;;; builtin-options-setup.el -- Settings for builtin options
 ;;;
 
+(defconst
+  metadata-dir
+  (substitute-in-file-name "$XDG_CACHE_HOME/emacs"))
+
 (setq
+ auto-save-file-name-transforms `((".*" ,metadata-dir t))
  backup-by-copying t
- backup-directory-alist '(("." . "~/.emacs.d/backups"))
+ backup-directory-alist `(("." . ,metadata-dir))
  bookmark-save-flag 1
  custom-file (locate-user-emacs-file "custom-vars.el")
  delete-old-versions t
@@ -21,11 +26,13 @@
  kept-old-versions 2
  recentf-max-saved-items 500
  ring-bell-function 'ignore
+ scroll-preserve-screen-position t
  set-mark-command-repeat-pop t
  tab-bar-show 1
  undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo"))
  use-dialog-box nil
- version-control t)
+ version-control t
+ window-combination-resize t)
 
 (when-mac
  (setq
