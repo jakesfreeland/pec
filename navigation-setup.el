@@ -26,6 +26,9 @@
 (use-package expand-region
   :bind ("C-=" . er/expand-region))
 
+(use-package god-mode
+  :bind (("<escape>" . god-mode)))
+
 ;; Scrolling
 
 (defun scroll-up-one ()
